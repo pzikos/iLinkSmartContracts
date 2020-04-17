@@ -12,7 +12,7 @@ contract simplestorage {
    }
 
    function set(uint x) public returns (uint value) {
-      require(x < 100, "Value can not be over 100");
+      require(x < 10000, "Value can not be over 100");
       storedData = x;
 
       emit DataStored(x);
