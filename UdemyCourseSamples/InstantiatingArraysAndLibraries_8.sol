@@ -1,4 +1,4 @@
-pragma solidity ^0.6.6;
+pragma solidity ^0.6.3;
 
 import "./ArraysAndLibraries_7.sol";
 
