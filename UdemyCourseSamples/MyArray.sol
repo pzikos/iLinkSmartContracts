@@ -1,6 +1,6 @@
 pragma solidity ^0.6.3;
 
-import "ZikosLibraries.sol";
+import "./ZikosLibraries.sol";
 
 contract MyArray{
     
