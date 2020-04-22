@@ -1,6 +1,6 @@
 pragma solidity ^0.6.6;
 
-//import "./ArraysAndLibraries_7.sol";
+import "./ArraysAndLibraries_7.sol";
 
 contract MyArray{
     
