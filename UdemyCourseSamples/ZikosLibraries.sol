@@ -5,7 +5,7 @@ import "Owned.sol";
 
 contract ZikosLibraries is Owned{
     
-    using ArraysLibrary for uint[]; //declare that we will use the abobe library for all arrays
+    using TestLibrary for uint[]; //declare that we will use the abobe library for all arrays
     uint[] public myArray;//behaves like a dynamic array - vector;
     
     function addElementToArray(uint val) public{//add a last element and incrase size by one
