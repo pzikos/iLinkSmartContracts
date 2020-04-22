@@ -1,11 +1,11 @@
 pragma solidity ^0.6.3;
 
-import "./TestLibrary.sol";
+import "./SimpleLibrary.sol";
 import "./Owned.sol";
 
 contract ArraySimpleLibraries is Owned{
     
-    using TestLibrary for uint[]; //declare that we will use the abobe library for all arrays
+    using SimpleLibrary for uint[]; //declare that we will use the abobe library for all arrays
     uint[] public myArray;//behaves like a dynamic array - vector;
     
     function addElementToArray(uint val) public{//add a last element and incrase size by one
