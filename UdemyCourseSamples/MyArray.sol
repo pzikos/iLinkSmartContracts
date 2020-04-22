@@ -1,6 +1,6 @@
 pragma solidity ^0.6.3;
 
-//import "ZikosLibraries.sol";
+import "ArraySimpleLibraries.sol";
 
 contract MyArray{
     
@@ -8,7 +8,7 @@ contract MyArray{
     event ErrorInElementReplaced(string reason) ;
     event ElementAdded(address from, uint newElement) ;
     
-    ZikosLibraries myExtArray = new ZikosLibraries();
+    ArraySimpleLibraries myExtArray = new ArraySimpleLibraries();
     
     function add(uint val) public{//add a last element and incrase size by one
        myExtArray.addElementToArray(val);
