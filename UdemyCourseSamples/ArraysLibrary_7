@@ -1,7 +1,7 @@
 pragma solidity ^0.6.3;
 
-import "ArrayLibrary.sol";
-import "Owned_5.sol";
+import "./arraysLibrary.sol";
+import "./Owned_5.sol";
 
 contract ArraysLibraries is Owned{
     
