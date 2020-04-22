@@ -1,4 +1,4 @@
-pragma solidity ^0.6.6;
+pragma solidity ^0.6.3;
 
 library arraysLibrary { //just like a contract but with no state variables, many openzeppelin libs out there
     
