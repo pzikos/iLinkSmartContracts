@@ -1,7 +1,7 @@
 pragma solidity ^0.6.3;
 
-import "TestLibrary.sol";
-import "Owned.sol";
+import "./TestLibrary.sol";
+import "./Owned.sol";
 
 contract ZikosLibraries is Owned{
     
