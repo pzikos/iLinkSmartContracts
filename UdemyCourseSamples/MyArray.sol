@@ -8,7 +8,7 @@ contract MyArray{
     event ErrorInElementReplaced(string reason) ;
     event ElementAdded(address from, uint newElement) ;
     
-    ArraysLibraries myExtArray = new ArraysLibraries();
+    ZikosLibraries myExtArray = new ZikosLibraries();
     
     function add(uint val) public{//add a last element and incrase size by one
        myExtArray.addElementToArray(val);
