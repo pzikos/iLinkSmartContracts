@@ -1,9 +1,9 @@
 pragma solidity ^0.6.3;
 
-//import "ArraysLibrary.sol";
-//import "Owned.sol";
+import "TestLibrary.sol";
+import "Owned.sol";
 
-contract ArraysLibraries is Owned{
+contract ZikosLibraries is Owned{
     
     using ArraysLibrary for uint[]; //declare that we will use the abobe library for all arrays
     uint[] public myArray;//behaves like a dynamic array - vector;
