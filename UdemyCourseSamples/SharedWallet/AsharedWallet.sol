@@ -1,9 +1,9 @@
 pragma solidity ^0.6.6;
 
-//import "https://github.com/OpenZeppelin/openzeppelincontracts/contracts/access/Ownable.sol";
-//import "https://github.com/OpenZeppelin/openzeppelincontracts/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelincontracts/contracts/access/Ownable.sol";
+import "https://github.com/OpenZeppelin/openzeppelincontracts/contracts/math/SafeMath.sol";
 
-
+/*
 library MyMathLibrary{
     
     function add(uint  a, uint  b) public pure returns(uint){
@@ -34,9 +34,9 @@ contract MyOwner{
     }
 }
 
-
-contract Allowance is MyOwner{    
-//contract Allowance is Ownable{    
+*/
+//contract Allowance is MyOwner{    
+contract Allowance is Ownable{    
     
     //using SafeMath for uint;
     using MyMathLibrary for uint;
@@ -67,8 +67,8 @@ contract Allowance is MyOwner{
     
 }
 
-//contract SharedWallet is Ownable, Allowance{
-contract SharedWallet is MyOwner, Allowance{ 
+contract SharedWallet is Ownable, Allowance{
+//contract SharedWallet is MyOwner, Allowance{ 
     
     uint public totalAmountSpent;
     uint public totalAmountReceived;
