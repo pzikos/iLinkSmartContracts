@@ -19,7 +19,7 @@ contract ItemManager is ItemOwnable{
         string identifier;
     }
     
-    mapping(uint => ItemStruct) public items;
+    mapping(uint => ItemStruct) public items; 
     
     function createItem(string memory _identifier, uint price) public OnlyOwner {
         Item item = new Item(this, price, serialNo, _identifier);
