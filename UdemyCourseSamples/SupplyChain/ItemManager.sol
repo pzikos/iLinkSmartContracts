@@ -2,8 +2,11 @@ pragma solidity ^0.5.17;
 
 import "./Item.sol";
 import "./ItemOwnable.sol";
+import "./SimpleMath.sol";
 
 contract ItemManager is ItemOwnable{
+
+    using SimpleMath for uint;
     
     enum ItemStatus{Created, Paid, Transported}
     uint serialNo = 1;
@@ -28,12 +31,25 @@ contract ItemManager is ItemOwnable{
     }
     
     function buyItem(uint itemSerialNo) public payable returns (bool) {
-        require(items[itemSerialNo].status == ItemStatus.Created, "Item Not For Sale");
         Item item = getItem(itemSerialNo);
         require(address(item) == msg.sender, "Only Item Can Invoke buyItem");
         ItemStruct storage itemStruct = items[item.getSerialNo()];
+        require(itemStruct.status == ItemStatus.Created, "Item Not For Sale");
         itemStruct.status = ItemStatus.Paid;
         emit ItemStatusChanged(item.getSerialNo(), uint(itemStruct.status), address(item));
+        return true;
+    }
+
+    function buyItemDirectly(uint itemSerialNo) public payable returns (bool) {
+        Item item = getItem(itemSerialNo);
+        require(!item.getIteBought() && item.getAmountReceived().compare(0), "Item Already Bought");
+        require(item.getPrice().compare(msg.value), "Not Enough Money to Buy This Item");
+        ItemStruct storage itemStruct = items[item.getSerialNo()];
+        require(itemStruct.status == ItemStatus.Created, "Item Not For Sale");
+        itemStruct.status = ItemStatus.Paid;
+        item.setIteBought(true);
+        emit ItemStatusChanged(item.getSerialNo(), uint(itemStruct.status), address(item));
+        item.setAmountReceived(item.getAmountReceived().add(msg.value));
         return true;
     }
     
