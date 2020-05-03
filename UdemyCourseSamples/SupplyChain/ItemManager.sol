@@ -54,6 +54,19 @@ contract ItemManager is ItemOwnable{
         return true;
     }
 	*/
+	
+	function buyItemDirectly(uint itemSerialNo) public payable returns (bool) {
+        Item item = getItem(itemSerialNo);
+        require(!item.getIteBought() && item.getAmountReceived() == 0, "Item Already Bought");
+        require(item.getPrice() == msg.value, "Not Enough Money to Buy This Item");
+        ItemStruct storage itemStruct = items[item.getSerialNo()];
+        require(itemStruct.status == ItemStatus.Created, "Item Not For Sale");
+        itemStruct.status = ItemStatus.Paid;
+        item.setIteBought(true);
+        emit ItemStatusChanged(item.getSerialNo(), uint(itemStruct.status), address(item));
+        item.setAmountReceived(item.getAmountReceived() + msg.value);
+        return true;
+    }
     
     function transportItem(uint itemSerialNo) public OnlyOwner {
         Item item = getItem(itemSerialNo);
