@@ -40,6 +40,7 @@ contract ItemManager is ItemOwnable{
         return true;
     }
 
+	/*
     function buyItemDirectly(uint itemSerialNo) public payable returns (bool) {
         Item item = getItem(itemSerialNo);
         require(!item.getIteBought() && item.getAmountReceived().compare(0), "Item Already Bought");
@@ -52,6 +53,7 @@ contract ItemManager is ItemOwnable{
         item.setAmountReceived(item.getAmountReceived().add(msg.value));
         return true;
     }
+	*/
     
     function transportItem(uint itemSerialNo) public OnlyOwner {
         Item item = getItem(itemSerialNo);
