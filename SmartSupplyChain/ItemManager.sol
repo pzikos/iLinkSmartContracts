@@ -29,6 +29,15 @@ contract ItemManager is ItemOwnable{
         emit ItemStatusChanged(serialNo, uint(items[serialNo].status), address(item));
         serialNo++;
     }    
+	
+	function createItemFromAnybody(string memory _identifier, uint price) public {
+        Item item = new Item(this, price, serialNo, _identifier);
+        items[serialNo].item = item;
+        items[serialNo].status = ItemStatus.Created;
+        items[serialNo].identifier = _identifier;
+        emit ItemStatusChanged(serialNo, uint(items[serialNo].status), address(item));
+        serialNo++;
+    }
     
     function buyItem(uint itemSerialNo) public payable returns (bool) {
         Item item = getItem(itemSerialNo);
